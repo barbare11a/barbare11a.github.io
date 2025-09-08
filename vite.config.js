@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({ 
-    base:"/barbare11a.github.io",
+    base:"/",
     build: {
         minify: "terser",
     },
