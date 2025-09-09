@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <link rel="icon" href="/assets/favicon-C0XdLbNv.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Barbarella's Website</title>
+    <script type="module" crossorigin src="/assets/index-Bf-qL6gk.js"></script>
+  </head>
+  <body>
+    <style>
+      @font-face{
+        font-family: monogram;
+        src: url(monogram.ttf);
+      }
+      body{
+        font-family: monogram, monospace;
+        font-size: 2rem;
+        overflow: hidden;
+      }
+        nav {
+        width: 100vw;
+        height: 60px;
+        background: #222;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+        font-family: monogram, monospace;
+        font-size: 1.5rem;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+      }
+      .nav-left {
+        font-weight: bold;
+        letter-spacing: 0.1em;
+      }
+      .nav-right {
+        display: flex;
+        gap: 2rem;
+      }
+      #nav-link-last {
+        padding-right: 2.5em;
+      }
+      .nav-link {
+        color: #fff;
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-link:hover {
+        color: #9fbec2;
+      }
+      #app{
+        width: 100%;
+        height: 100%;
+        position:relative;
+        /* margin-top: 60px; */
+      }
+      #textbox{
+        position: absolute;
+        left: 10%;
+        right: 10%;
+        bottom: 2vh;
+        min-height: 10vh;
+        background: white;
+        border-radius: 3px;
+        outline-style: solid;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        word-spacing: 0.2rem;
+        filter: drop-shadow(0 0 0.75rem rgb(112, 112, 112));
+        /* overflow: auto; */
+
+      }
+        .ui-text {
+        margin: 0;
+        user-select: none;
+      }
+
+      .ui-close-btn {
+        font-family: monogram, monospace;
+        border-style: none;
+        border-radius: 3px;
+        padding: 1rem;
+        font-size: inherit;
+      }
+
+      .btn-container {
+        align-self: flex-end;
+        margin-top: 1rem;
+      }
+
+      .note {
+        position: absolute;
+        left: 5%;
+        top: 5vh;
+        display: flex;
+        flex-direction: column;
+        color: rgb(238, 238, 238);
+        user-select: none;
+      }
+    </style>
+     <nav>
+      <div class="nav-left">Barbarella</div>
+      <div class="nav-right">
+        <!-- these will be outside links  -->
+        <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="#resume">Resume</a>
+        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link" id="nav-link-last" href="3d.html">3D</a>
+      </div>
+    </nav>
+    <div id="app">
+      <div>
+        <p class="note">Use the arrow keys or click around to move</p>
+        <div id="textbox-container" style="display: none">
+          <div id="textbox">
+            <p id="dialogue" class="ui-text"></p>
+            <div class="btn-container">
+              <button id="close" class="ui-close-btn">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <canvas id="game"></canvas>
+    </div>
+  </body>
+</html>
