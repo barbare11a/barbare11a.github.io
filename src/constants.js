@@ -8,7 +8,7 @@ export const dialogueData = {
   "resu projects": `This is my desk, I currently work as a Software Engineer. If you would like to know more about my work click on these links! 
   <a href="https://linkedin.com/in/barbarellacastillo" target="_blank">LinkedIn</a>
     <a href="https://github.com/barbare11a" target="_blank">GitHub</a>
-     <a href="https://github.com/JSLegendDev/Resume/blob/main/JSLegend%20Resume-1.pdf" target="_blank">Resume</a>
+     <a href="./BarbarellaResume.pdf" target="_blank">Resume</a>
   <br>Contact me at 11barbarella@gmail.com if you have any interesting job opportunities!`,
   "intro-wall": `Welcome to my portfolio! It's made with the Kaboom.js library which is a library for making games in JavaScript.
   Text is rendered with HTML/CSS. So the textbox you're currently reading is not rendered within canvas. Check out my source code <a href="https://github.com/barbare11a/portfolio" target="_blank">here</a>. (press enter to close)`,
