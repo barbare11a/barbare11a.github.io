@@ -10,3 +10,6 @@ created with Kamboom.js, HTML/CSS and Tiled
 credits: 
 - https://jslegenddev.github.io/portfolio/
 - https://0-mem0ry.itch.io/
+
+troubleshooting: 
+[deploying to github pages with vite ](https://levelup.gitconnected.com/deploy-your-vite-app-to-github-pages-a-lazy-devs-guide-37b0b472fa35)
