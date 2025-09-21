@@ -93,9 +93,11 @@ for (const layer of layers) {
     setCamScale(k);
   });
 
-//   k.onUpdate(() => {
-//     k.camPos(player.worldPos().x, player.worldPos().y - 100);
-//   });
+ if (window.innerWidth < 700) {
+  k.onUpdate(() => {
+    k.camPos(player.worldPos().x, player.worldPos().y - 100);
+  });
+}
 //this makes the map move as the player moves
 //but I want the map to be fixed and the player to move within it
 //so I will comment it out for now
