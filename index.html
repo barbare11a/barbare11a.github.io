@@ -26,7 +26,7 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 0 2rem;
+        padding: 0 1rem; 
         position: fixed;
         top: 0;
         left: 0;
@@ -36,6 +36,7 @@
         box-shadow: 0 2px 8px rgba(0,0,0,0.15);
       }
       .nav-left {
+        margin-left: 0.5rem; 
         font-weight: bold;
         letter-spacing: 0.1em;
       }
@@ -54,6 +55,11 @@
       .nav-link:hover {
         color: #9fbec2;
       }
+      @media (max-width: 700px) {
+  .nav-link:hover {
+    color: inherit;
+  }
+}
       #app{
         width: 100%;
         height: 100%;
@@ -107,15 +113,141 @@
         color: rgb(238, 238, 238);
         user-select: none;
       }
+#modal-overlay,
+#contact-modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+}
+
+#modal,
+#contact-modal-overlay #modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  color: #333;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#modal-close,
+#contact-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  font-size: 1.5rem;
+}
+      #contact-modal-overlay img {
+        vertical-align: middle;
+        border-radius: 4px;
+      }
+
+      /* Hamburger styles */
+#nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 0.5rem;
+  margin-right: 2rem;
+}
+
+.hamburger {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  position: relative;
+  border-radius: 2px;
+}
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #fff;
+  position: absolute;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+.hamburger::before {
+  top: -9px;
+}
+.hamburger::after {
+  top: 9px;
+}
+
+/* Responsive nav */
+@media (max-width: 700px) {
+  .nav-right {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: #222;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 40vw;
+    max-width: 300px;
+    height: calc(100vh - 60px);
+    padding: 2rem 1rem;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    z-index: 1100;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+  }
+  .nav-right.open {
+    transform: translateX(0);
+  }
+  #nav-toggle {
+    display: block;
+  }
+}
+
+/* Responsive modal */
+@media (max-width: 600px) {
+  #modal,
+  #contact-modal-overlay #modal {
+    padding: 1rem;
+    width: 96vw;
+    max-width: 96vw;
+    font-size: 1rem;
+  }
+  #modal-close,
+  #contact-modal-close {
+    font-size: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+  }
+}
     </style>
      <nav>
       <div class="nav-left">Barbarella</div>
-      <div class="nav-right">
-        <!-- these will be outside links  -->
+      <button id="nav-toggle" aria-label="Open navigation">
+        <span class="hamburger"></span>
+      </button>
+      <div class="nav-right" id="nav-menu">
+        <!-- these will be outside links 
+         TODO:  finish 3D page -->
+
         <a class="nav-link" href="#about">About</a>
         <a class="nav-link" href="./BarbarellaResume.pdf" target="_blank">Resume</a>
-        <a class="nav-link" href="mailto:11barbarella@gmail.com?subject=Portfolio%20Inquiry">Contact</a>
-        <a class="nav-link" id="nav-link-last" href="3d.html">3D</a>
+        <a class="nav-link" href="3d.html">3D</a>
+        <a class="nav-link" id="nav-link-last" href="mailto:11barbarella@gmail.com?subject=Portfolio%20Inquiry">Contact</a>
+
       </div>
     </nav>
     <div id="app">
@@ -132,5 +264,84 @@
       </div>
       <canvas id="game"></canvas>
     </div>
+    <div id="modal-overlay">
+      <div id="modal">
+        <span id="modal-close">&times;</span>
+        <h2>About</h2>
+        <p>
+          Hi, I'm Barbarella! I currently work as a Software Engineer. 
+        </p>
+      </div>
+    </div>
+        <div id="contact-modal-overlay" style="display:none;">
+      <div id="modal">
+        <span id="contact-modal-close">&times;</span>
+        <h2>Contact</h2>
+         <p>
+          Hi, I'm Barbarella! I am passionate about art, design, and software engineering.<br>
+          (Add more about yourself here.)
+        </p>
+        <div style="display: flex; flex-direction: row; gap: 2rem; align-items: center; justify-content: center; width: 100%;">
+          <a href="https://github.com/barbare11a" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;" class="nav-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="32" height="32"/>
+            GitHub
+          </a>
+          <a href="https://linkedin.com/in/barbarellacastillo" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;" class="nav-link">
+            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="32" height="32"/>
+            LinkedIn
+          </a>
+          <a href="mailto:11barbarella@gmail.com?subject=Portfolio%20Inquiry" style="display: flex; align-items: center; gap: 0.5rem;" class="nav-link">
+            <img alt="Email" width="40" height="40" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciICB2aWV3Qm94PSIwIDAgNTAgNTAiIHdpZHRoPSI1MHB4IiBoZWlnaHQ9IjUwcHgiPjxwYXRoIGQ9Ik0gMTQgNCBDIDguNDg4NjY2MSA0IDQgOC40ODg2NjYxIDQgMTQgTCA0IDM2IEMgNCA0MS41MTEzMzQgOC40ODg2NjYxIDQ2IDE0IDQ2IEwgMzYgNDYgQyA0MS41MTEzMzQgNDYgNDYgNDEuNTExMzM0IDQ2IDM2IEwgNDYgMTQgQyA0NiA4LjQ4ODY2NjEgNDEuNTExMzM0IDQgMzYgNCBMIDE0IDQgeiBNIDEzIDE2IEwgMzcgMTYgQyAzNy4xOCAxNiAzNy4zNDk3NjYgMTYuMDIwMzEyIDM3LjUwOTc2NiAxNi4wNzAzMTIgTCAyNy42Nzk2ODggMjUuODkwNjI1IEMgMjYuMTk5Njg4IDI3LjM3MDYyNSAyMy43OTA1NDcgMjcuMzcwNjI1IDIyLjMxMDU0NyAyNS44OTA2MjUgTCAxMi40OTAyMzQgMTYuMDcwMzEyIEMgMTIuNjUwMjM0IDE2LjAyMDMxMiAxMi44MiAxNiAxMyAxNiB6IE0gMTEuMDcwMzEyIDE3LjQ5MDIzNCBMIDE4LjU4OTg0NCAyNSBMIDExLjA3MDMxMiAzMi41MDk3NjYgQyAxMS4wMjAzMTIgMzIuMzQ5NzY2IDExIDMyLjE4IDExIDMyIEwgMTEgMTggQyAxMSAxNy44MiAxMS4wMjAzMTIgMTcuNjUwMjM0IDExLjA3MDMxMiAxNy40OTAyMzQgeiBNIDM4LjkyOTY4OCAxNy40OTAyMzQgQyAzOC45Nzk2ODggMTcuNjUwMjM0IDM5IDE3LjgyIDM5IDE4IEwgMzkgMzIgQyAzOSAzMi4xOCAzOC45Nzk2ODcgMzIuMzQ5NzY2IDM4LjkyOTY4OCAzMi41MDk3NjYgTCAzMS40MDAzOTEgMjUgTCAzOC45Mjk2ODggMTcuNDkwMjM0IHogTSAyMCAyNi40MTAxNTYgTCAyMC44OTA2MjUgMjcuMzEwNTQ3IEMgMjIuMDIwNjI1IDI4LjQ0MDU0NyAyMy41MTAyMzQgMjkgMjQuOTkwMjM0IDI5IEMgMjYuNDgwMjM0IDI5IDI3Ljk1OTg0NCAyOC40NDA1NDcgMjkuMDg5ODQ0IDI3LjMxMDU0NyBMIDI5Ljk5MDIzNCAyNi40MTAxNTYgTCAzNy41MDk3NjYgMzMuOTI5Njg4IEMgMzcuMzQ5NzY2IDMzLjk3OTY4OCAzNy4xOCAzNCAzNyAzNCBMIDEzIDM0IEMgMTIuODIgMzQgMTIuNjUwMjM0IDMzLjk3OTY4NyAxMi40OTAyMzQgMzMuOTI5Njg4IEwgMjAgMjYuNDEwMTU2IHoiLz48L3N2Zz4="/>
+            Email
+          </a>
+        </div>
+      </div>
+    </div>
+    <script>
+  document.querySelector('.nav-link[href="#about"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('modal-overlay').style.display = 'none';
+    document.getElementById('contact-modal-overlay').style.display = 'none';
+    document.getElementById('modal-overlay').style.display = 'flex';
+  });
+
+  document.querySelector('.nav-link[href^="mailto"]').addEventListener('click', function(e) {
+    e.preventDefault();
+    document.getElementById('modal-overlay').style.display = 'none';
+    document.getElementById('contact-modal-overlay').style.display = 'none';
+    document.getElementById('contact-modal-overlay').style.display = 'flex';
+  });
+
+  document.getElementById('modal-close').addEventListener('click', function() {
+    document.getElementById('modal-overlay').style.display = 'none';
+  });
+  document.getElementById('modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+
+  document.getElementById('contact-modal-close').addEventListener('click', function() {
+    document.getElementById('contact-modal-overlay').style.display = 'none';
+  });
+  document.getElementById('contact-modal-overlay').addEventListener('click', function(e) {
+    if (e.target === this) {
+      this.style.display = 'none';
+    }
+  });
+
+const navToggle = document.getElementById('nav-toggle');
+const navMenu = document.getElementById('nav-menu');
+
+navToggle.addEventListener('click', () => {
+  navMenu.classList.toggle('open');
+});
+
+navMenu.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    navMenu.classList.remove('open');
+  });
+});
+    </script>
   </body>
 </html>
