@@ -5,7 +5,7 @@
      <link rel="icon" href="/assets/favicon-C0XdLbNv.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Barbarella's Website</title>
-    <script type="module" crossorigin src="/assets/index-DQPQUrvw.js"></script>
+    <script type="module" crossorigin src="/assets/index-n5CV0Yl2.js"></script>
   </head>
   <body>
     <style>
@@ -39,6 +39,9 @@
         margin-left: 0.5rem; 
         font-weight: bold;
         letter-spacing: 0.1em;
+        color: inherit;
+        text-decoration: none;
+        cursor: pointer;
       }
       .nav-right {
         display: flex;
@@ -51,9 +54,24 @@
         color: #fff;
         text-decoration: none;
         transition: color 0.2s;
+        padding-top: 1px;
       }
-      .nav-link:hover {
-        color: #9fbec2;
+      #bot-link {
+        display: inline-block; /* required for transform/animation */
+        will-change: transform;
+      }
+      #bot-link:hover {
+        animation: wiggle 0.6s ease-in-out infinite;
+      }
+
+      @keyframes wiggle {
+        0%   { transform: translateY(0) rotate(0deg); }
+        15%  { transform: rotate(-18deg); }
+        30%  { transform: rotate(12deg); }
+        45%  { transform: rotate(-8deg); }
+        60%  { transform: rotate(6deg); }
+        75%  { transform: rotate(-3deg); }
+        100% { transform: rotate(0deg); }
       }
       @media (max-width: 700px) {
   .nav-link:hover {
@@ -190,8 +208,6 @@
 .hamburger::after {
   top: 9px;
 }
-
-/* Responsive nav */
 @media (max-width: 700px) {
   .nav-right {
     position: fixed;
@@ -216,8 +232,6 @@
     display: block;
   }
 }
-
-/* Responsive modal */
 @media (max-width: 600px) {
   #modal,
   #contact-modal-overlay #modal {
@@ -235,17 +249,19 @@
 }
     </style>
      <nav>
-      <div class="nav-left">Barbarella</div>
+      <!--  
+         TODO: 
+         do someting about the sounds
+         -->
+      <a href="./index.html" class="nav-left" aria-label="Home">Barbarella</a>
+
       <button id="nav-toggle" aria-label="Open navigation">
         <span class="hamburger"></span>
       </button>
       <div class="nav-right" id="nav-menu">
-        <!-- these will be outside links 
-         TODO:  finish 3D page -->
-
-        <a class="nav-link" href="#about">About</a>
-        <a class="nav-link" href="./BarbarellaResume.pdf" target="_blank">Resume</a>
-        <a class="nav-link" href="3d.html">3D</a>
+        <a class="nav-link" href="#" id="bot-link">👾</a>
+         <a class="nav-link" href="#about">About</a>
+        <a class="nav-link" href="https://docs.google.com/document/d/10FiMBnnKqRRoGNKd06-rRgwK417q4AqKncAP8nq6a3I/edit?usp=sharing" target="_blank">Resume</a>
         <a class="nav-link" id="nav-link-last" href="mailto:11barbarella@gmail.com?subject=Portfolio%20Inquiry">Contact</a>
 
       </div>
@@ -279,7 +295,7 @@
         <h2>Contact</h2>
          <p>
           Hi, I'm Barbarella! I am passionate about art, design, and software engineering.<br>
-          (Add more about yourself here.)
+          Feel free to reach out to me through any of the platforms below!
         </p>
         <div style="display: flex; flex-direction: row; gap: 2rem; align-items: center; justify-content: center; width: 100%;">
           <a href="https://github.com/barbare11a" target="_blank" style="display: flex; align-items: center; gap: 0.5rem;" class="nav-link">
