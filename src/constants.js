@@ -12,6 +12,6 @@ export const dialogueData = {
   <br>Contact me at 11barbarella@gmail.com if you have any interesting job opportunities!`,
   "intro-wall": `Welcome to my portfolio! It's made with the Kaboom.js library which is a library for making games in JavaScript.
   Text is rendered with HTML/CSS. So the textbox you're currently reading is not rendered within canvas. Check out my source code <a href="https://github.com/barbare11a/portfolio" target="_blank">here</a>. (press enter to close)`,
-  wall: `Thanks for checking out my portfolio! use the arrow keys or your mouse to click on the different objects to learn more about me! You can also checkout my 3D portfolio <a href="./3d.html" target="_blank">here</a>. (press enter to close)`,
+  wall: `Thanks for checking out my portfolio! use the arrow keys or your mouse to click on the different objects to learn more about me! You can also checkout my 2D game by clicking on the '👾'. (press enter to close)`,
   ceiling: `I used to climb walls as a child in gymnastics, now I just climb them in my portfolio :)`,
 };
